@@ -1,0 +1,63 @@
+﻿@model VotersClassLibrary.VotersModel.Voters
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Voters</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="VoterID" class="control-label"></label>
+                <input asp-for="VoterID" class="form-control" />
+                <span asp-validation-for="VoterID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VotersName" class="control-label"></label>
+                <input asp-for="VotersName" class="form-control" />
+                <span asp-validation-for="VotersName" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+            <label asp-for="City" class="control-label"></label>
+            <input asp-for="City" class="form-control" />
+            <span asp-validation-for="City" class="text-danger"></span>
+        </div>*@
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label>
+                <select class="form-control" asp-for="City" asp-items="@(new SelectList(Model.Cityname,"City","City"))">
+                    <option>--Select CountryName--</option>
+                </select>
+                <span asp-validation-for="Cityname" class="text-danger"></span>
+            </div>
+                <div class="form-group">
+                    /
+                    <label asp-for="VoterAddress" class="control-label"></label>
+                    <input asp-for="VoterAddress" class="form-control" />
+                    <span asp-validation-for="VoterAddress" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Age" class="control-label"></label>
+                    <input asp-for="Age" class="form-control" />
+                    <span asp-validation-for="Age" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AadharNumber" class="control-label"></label>
+                    <input asp-for="AadharNumber" class="form-control" />
+                    <span asp-validation-for="AadharNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="List">Back to List</a>
+</div>
+
